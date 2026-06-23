@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3 - Task 1: Image Manipulation</title>
+    <style>
+        /* --- Base Setup --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-bottom: 15px;
+            border-left: 5px solid #ff7675;
+            padding-left: 10px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- Requirement 2: Automatic Image Slideshow (CSS Animation) --- */
+        .slideshow-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 400%; /* 4 images = 400% width */
+            height: 100%;
+            animation: slideAnimation 16s infinite; /* 4 seconds per image */
+        }
+
+        .slider-wrapper img {
+            width: 25%; /* Each image occupies exactly 1/4 of wrapper */
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Timeline configuration for automatic looping transitions */
+        @keyframes slideAnimation {
+            0%, 20%   { transform: translateX(0); }       /* Image 1 */
+            25%, 45%  { transform: translateX(-25%); }    /* Image 2 */
+            50%, 70%  { transform: translateX(-50%); }    /* Image 3 */
+            75%, 95%  { transform: translateX(-75%); }    /* Image 4 */
+            100%      { transform: translateX(0); }       /* Loop reset back to 1 */
+        }
+
+
+        /* --- Requirement 1: Click-to-Enlarge Thumbnail Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* Hidden click anchor mechanics using HTML :focus pseudo-class */
+        .thumbnail-box {
+            position: relative;
+            outline: none;
+            cursor: zoom-in;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .thumbnail-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .thumbnail-box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Fullscreen Overlay Configuration when Thumbnail is clicked (:focus active) */
+        .thumbnail-box:focus {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            transform: none;
+        }
+
+        /* Changes layout from small grid box to massive crisp preview under focus mode */
+        .thumbnail-box:focus img {
+            width: auto;
+            max-width: 90%;
+            height: auto;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.2);
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        /* Add a quick "Close" instruction text when zoomed in */
+        .thumbnail-box:focus::after {
+            content: "Click anywhere outside to close window";
+            position: absolute;
+            bottom: 30px;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Level 3 - Task 1</h1>
+
+        <section>
+            <h2>1. Automatic Image Slideshow</h2>
+            <div class="slideshow-container">
+                <div class="slider-wrapper">
+                    <img src="https://picsum.photos/900/350?random=11" alt="Slideshow Nature 1">
+                    <img src="https://picsum.photos/900/350?random=12" alt="Slideshow Architecture 2">
+                    <img src="https://picsum.photos/900/350?random=13" alt="Slideshow Cityscape 3">
+                    <img src="https://picsum.photos/900/350?random=14" alt="Slideshow Sea 4">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Click-to-Enlarge Gallery</h2>
+            <p style="margin-bottom: 15px; color: #666;">Click on any thumbnail below to enlarge it to fullscreen preview mode.</p>
+            
+            <div class="gallery-grid">
+                <div class="thumbnail-box" tabindex="0">
+                    <img src="https://picsum.photos/600/450?random=21" alt="Gallery Photo 1">
+                </div>
+                <div class="thumbnail-box" tabindex="0">
+                    <img src="https://picsum.photos/600/450?random=22" alt="Gallery Photo 2">
+                </div>
+                <div class="thumbnail-box" tabindex="0">
+                    <img src="https://picsum.photos/600/450?random=23" alt="Gallery Photo 3">
+                </div>
+                <div class="thumbnail-box" tabindex="0">
+                    <img src="https://picsum.photos/600/450?random=24" alt="Gallery Photo 4">
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

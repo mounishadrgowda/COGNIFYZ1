@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer Internship Landing Page</title>
+    <style>
+        /* --- Base & Design System Styling --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 5px solid #f59e0b;
+        }
+
+        /* Requirement: Clear Headline */
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Requirement: Brief Introduction */
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        /* Requirement: Call-to-action (CTA) Buttons */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #f59e0b;
+            color: #1e3a8a;
+        }
+
+        .btn-primary:hover {
+            background-color: #d97706;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #1e3a8a;
+        }
+
+        /* --- Main Content Sections --- */
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .grid-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                flex-direction: column;
+            }
+        }
+
+        /* Requirement: Highlights & Qualifications Layout */
+        .content-card {
+            background: white;
+            flex: 1;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #3b82f6;
+        }
+
+        .content-card h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-left: 5px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        li strong {
+            color: #1e3a8a;
+        }
+
+        /* Requirement: Contact Information Footer */
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 1px solid #334155;
+        }
+
+        .footer h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Web Developer Internship Opportunities at Cognifyz Technologies</h1>
+            <p>Kickstart your technical career with a comprehensive 3-month remote internship program designed to refine your front-end development stack. Work directly on production environments, manage scalable layout assets, and convert designs into pristine, interactive components.</p>
+            
+            <div class="cta-container">
+                <a href="#apply" class="btn btn-primary" onclick="alert('Redirecting to Application Form...')">Apply Now</a>
+                <a href="#details" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="details" class="container section-padding">
+        <div class="grid-layout">
+            
+            <section class="content-card">
+                <h2>Program Highlights & Benefits</h2>
+                <ul>
+                    <li><strong>Real-World Experience:</strong> Code interactive UI layouts used directly across live client deployments.</li>
+                    <li><strong>Professional Mentorship:</strong> Participate in weekly technical review loops with senior engineering leads.</li>
+                    <li><strong>Flexible Schedule:</strong> Fully remote structural milestones allowing you to balance academic requirements smoothly.</li>
+                    <li><strong>Certificate of Completion:</strong> Gain verified credentials to showcase on your tech portfolio and resume profiles.</li>
+                </ul>
+            </section>
+
+            <section class="content-card">
+                <h2>Desired Skills & Qualifications</h2>
+                <ul>
+                    <li><strong>Core Web Stack:</strong> Working foundational knowledge of semantic HTML5 structural layout and CSS3 properties.</li>
+                    <li><strong>Dynamic Scripting:</strong> Basic familiarity with native JavaScript logic parsing and handling DOM manipulation methods.</li>
+                    <li><strong>Modern Layout Utilities:</strong> Exposure to adaptive layout mechanics such as grid frameworks, Flexbox, or Bootstrap configurations.</li>
+                    <li><strong>Mindset:</strong> Eagerness to absorb structural review feedback, analyze system bugs, and build smooth user experiences.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>Inquiries & Contact Details</h3>
+            <p>Have questions regarding the selection process or internship curriculum timeline?</p>
+            <p><strong>Email:</strong> <a href="mailto:careers@cognifyz.com">careers@cognifyz.com</a> | <strong>Website:</strong> <a href="https://cognifyz.com" target="_blank">www.cogn

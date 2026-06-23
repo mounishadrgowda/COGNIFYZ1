@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 - Task 2 (JavaScript)</title>
+    <style>
+        /* Simple styling to make the webpage look clean */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        /* Color Changing Button Style */
+        #colorBtn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        /* Calculator Input Styles */
+        .calc-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .calc-btn {
+            padding: 8px 16px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .calc-btn:hover {
+            background-color: #27ae60;
+        }
+        #resultDisplay {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Level 1 - Task 2</h1>
+        <hr><br>
+
+        <section>
+            <h2>1. Color Changing Button</h2>
+            <button id="colorBtn">Click Me to Change Color!</button>
+        </section>
+
+        <section>
+            <h2>2. Time-Based Greeting</h2>
+            <p>Refresh the page to see a popup message based on your computer's current time.</p>
+        </section>
+
+        <section>
+            <h2>3. Basic Addition Calculator</h2>
+            <div class="calc-inputs">
+                <input type="number" id="num1" placeholder="First No.">
+                <span>+</span>
+                <input type="number" id="num2" placeholder="Second No.">
+                <button class="calc-btn" onclick="addNumbers()">Calculate</button>
+            </div>
+            <p>Result: <span id="resultDisplay">0</span></p>
+        </section>
+    </div>
+
+    <script>
+        // --- 1. Color Changing Button Logic ---
+        const colorBtn = document.getElementById('colorBtn');
+        
+        colorBtn.addEventListener('click', function() {
+            // Generates a random hex color code (e.g., #3498db)
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            colorBtn.style.backgroundColor = randomColor;
+        });
+
+        // --- 2. Time-Based Greeting Logic ---
+        // Runs automatically when the webpage loads
+        window.onload = function() {
+            const currentHour = new Date().getHours();
+            let greeting = "";
+
+            if (currentHour < 12) {
+                greeting = "Good morning!";
+            } else if (currentHour < 18) {
+                greeting = "Good afternoon!";
+            } else {
+                greeting = "Good evening!";
+            }
+
+            alert(greeting + " Welcome to my interactive webpage.");
+        };
+
+        // --- 3. Calculator Logic ---
+        function addNumbers() {
+            // Get values from the inputs, converting strings to floats (decimal numbers)
+            const number1 = parseFloat(document.getElementById('num1').value) || 0;
+            const number2 = parseFloat(document.getElementById('num2').value) || 0;
+            
+            // Perform addition
+            const sum = number1 + number2;
+            
+            // Display the result on the webpage
+            document.getElementById('resultDisplay').textContent = sum;
+        }
+    </script>
+
+</body>
+</html>
